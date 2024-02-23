@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javadeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaapi
+  template:
+    metadata:
+      labels:
+        app: javaapi
+    spec:
+      containers:
+      - name: javaapi
+        image: subek/java
+        ports:
+        - containerPort: 8080

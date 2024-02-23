@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-deployment
+  labels:
+    rclbl: nginxDep
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: reactapp
+  template:
+    metadata:
+      name: reactPod
+      labels:
+        type: reactapp
+    spec:  
+      containers:
+        - name: reactapp
+          image: nginx:latest
